@@ -15,6 +15,6 @@ train-pos:
 	opennlp POSTaggerTrainer -model output/lt-pos.bin -lang lt -data resources/lt-pos.train -encoding UTF-8
 
 eval-pos:
-	opennlp POSTaggerEvaluator -model output/lt-pos.bin -data resources/lt-pos.eval -encoding UTF-8
+	opennlp POSTaggerEvaluator -model src/main/resources/models/lt-pos.bin -data resources/lt-pos.eval -encoding UTF-8
 
 eval: eval-token eval-sent eval-pos
