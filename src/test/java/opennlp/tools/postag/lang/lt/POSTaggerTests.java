@@ -2,19 +2,19 @@ package opennlp.tools.postag.lang.lt;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.HashSet;
+
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class POSTaggerTests {
     private final POSTagger POS_TAGGER = new POSTagger();
 
     @Test
-    void getPOSTags() {
-        assertArrayEquals(
-                new String[]{
-                        "PUNCT", "ADV", "VERB", "PART", "PRON", "CCONJ", "NOUN",
-                        "ADP", "PROPN", "ADJ", "INTJ", "SCONJ", "NUM", "X", "SYM"
-                },
-                POS_TAGGER.getAllPosTags()
+    void equalPOSTable() {
+        assertEquals(
+                POSTagger.POS_TABLE.keySet(), new HashSet<>(Arrays.asList(POS_TAGGER.getAllPosTags()))
         );
     }
 
@@ -22,11 +22,23 @@ public class POSTaggerTests {
     void getPOSTagsFromTokens() {
         assertArrayEquals(
                 new String[]{
-                        "ADV", "VERB", "PART", "NOUN", "PUNCT", "CCONJ", "ADV", "ADJ", "NOUN", "NOUN", "PUNCT"
+                        "prv.nelygin.", "įv.vns.N.", "dll.", "dkt.tikr.vyr.vns.V.", "skyr."
                 },
                 POS_TAGGER.tag(new String[]{
-                        "Kitaip", "būsi", "ne", "dama", ",", "o", "tik", "paprasto", "partsekretoriaus", "žmona", "."
+                        "Čia", "tau", "ne", "Paryžius", "."
                 })
+        );
+    }
+
+    @Test
+    void getUniversalPOSTagsFromTokens() {
+        assertArrayEquals(
+                new String[]{
+                        "ADV", "PRON", "PART", "PROPN", "PUNCT"
+                },
+                POSTagger.toUniversalTags(POS_TAGGER.tag(new String[]{
+                        "Čia", "tau", "ne", "Paryžius", "."
+                }))
         );
     }
 
