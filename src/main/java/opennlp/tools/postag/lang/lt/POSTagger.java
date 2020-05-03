@@ -15,7 +15,7 @@ public class POSTagger extends POSTaggerME {
     private static final Logger LOGGER = Logger.getLogger(POSTagger.class.getName());
     private static final String DEFAULT_MODEL_PATH = "/models/lt-pos.bin";
     private static final String TABLE_PATH = "/lt-pos-table.txt";
-    private static final HashMap<String, String> POS_TABLE = loadUniversalPOSTable();
+    static final HashMap<String, String> POS_TABLE = loadUniversalPOSTable();
 
     public POSTagger() {
         super(loadDefaultModel());
