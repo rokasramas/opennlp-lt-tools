@@ -248,7 +248,9 @@ dkt.vyr.vns.Įn.sngr.	NOUN
 dkt.vyr.vns.Š.	NOUN
 dll.	PART
 išt.	INTJ
+jng.	CONJ
 jst.	INTJ
+kita.	X
 prl.	ADP
 prl.G.	ADP
 prl.K.	ADP
