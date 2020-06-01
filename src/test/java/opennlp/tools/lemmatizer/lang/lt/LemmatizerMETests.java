@@ -4,8 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-public class LemmatizerTests {
-    private final Lemmatizer LEMMATIZER = new Lemmatizer();
+public class LemmatizerMETests {
+    private final LemmatizerME LEMMATIZER = new LemmatizerME();
 
     @Test
     void getLemmas() {

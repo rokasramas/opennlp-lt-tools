@@ -4,8 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import org.junit.jupiter.api.Test;
 
-class SentenceDetectorTests {
-    private final SentenceDetector SENTENCE_DETECTOR = new SentenceDetector();
+class SentenceDetectorMETests {
+    private final SentenceDetectorME SENTENCE_DETECTOR = new SentenceDetectorME();
 
     @Test
     void tokenizeSimpleSentences() {

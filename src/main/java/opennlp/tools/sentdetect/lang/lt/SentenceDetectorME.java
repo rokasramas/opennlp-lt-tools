@@ -5,24 +5,23 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import opennlp.tools.sentdetect.SentenceDetectorME;
 import opennlp.tools.sentdetect.SentenceModel;
 
-public class SentenceDetector extends SentenceDetectorME {
-    private static final Logger LOGGER = Logger.getLogger(SentenceDetector.class.getName());
+public class SentenceDetectorME extends opennlp.tools.sentdetect.SentenceDetectorME {
+    private static final Logger LOGGER = Logger.getLogger(SentenceDetectorME.class.getName());
     private static final String DEFAULT_MODEL_PATH = "/models/lt-sent.bin";
 
-    public SentenceDetector() {
+    public SentenceDetectorME() {
         super(loadDefaultModel());
     }
 
-    public SentenceDetector(SentenceModel model) {
+    public SentenceDetectorME(SentenceModel model) {
         super(model);
     }
 
     private static SentenceModel loadDefaultModel() {
         SentenceModel model = null;
-        try (InputStream modelIn = SentenceDetector.class.getResourceAsStream(DEFAULT_MODEL_PATH)) {
+        try (InputStream modelIn = SentenceDetectorME.class.getResourceAsStream(DEFAULT_MODEL_PATH)) {
             model = new SentenceModel(modelIn);
         } catch (NullPointerException | IOException e) {
             LOGGER.log(Level.SEVERE, "Failed to load default sentence detector model: " + DEFAULT_MODEL_PATH, e);

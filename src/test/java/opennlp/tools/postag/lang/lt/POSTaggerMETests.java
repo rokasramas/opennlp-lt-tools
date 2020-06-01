@@ -8,13 +8,13 @@ import java.util.HashSet;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class POSTaggerTests {
-    private final POSTagger POS_TAGGER = new POSTagger();
+public class POSTaggerMETests {
+    private final POSTaggerME POS_TAGGER = new POSTaggerME();
 
     @Test
     void equalPOSTable() {
         assertEquals(
-                POSTagger.POS_TABLE.keySet(), new HashSet<>(Arrays.asList(POS_TAGGER.getAllPosTags()))
+                POSTaggerME.POS_TABLE.keySet(), new HashSet<>(Arrays.asList(POS_TAGGER.getAllPosTags()))
         );
     }
 
@@ -36,7 +36,7 @@ public class POSTaggerTests {
                 new String[]{
                         "ADV", "PRON", "PART", "PROPN", "PUNCT"
                 },
-                POSTagger.toUniversalTags(POS_TAGGER.tag(new String[]{
+                POSTaggerME.toUniversalTags(POS_TAGGER.tag(new String[]{
                         "Čia", "tau", "ne", "Paryžius", "."
                 }))
         );

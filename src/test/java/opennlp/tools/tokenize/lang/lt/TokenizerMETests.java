@@ -4,8 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import org.junit.jupiter.api.Test;
 
-class TokenizerTests {
-    private final Tokenizer TOKENIZER = new Tokenizer();
+class TokenizerMETests {
+    private final TokenizerME TOKENIZER = new TokenizerME();
 
     @Test
     void tokenizeSimpleSentences() {

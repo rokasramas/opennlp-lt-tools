@@ -8,20 +8,19 @@ import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import opennlp.tools.postag.POSTaggerME;
 import opennlp.tools.postag.POSModel;
 
-public class POSTagger extends POSTaggerME {
-    private static final Logger LOGGER = Logger.getLogger(POSTagger.class.getName());
+public class POSTaggerME extends opennlp.tools.postag.POSTaggerME {
+    private static final Logger LOGGER = Logger.getLogger(POSTaggerME.class.getName());
     private static final String DEFAULT_MODEL_PATH = "/models/lt-pos.bin";
     private static final String TABLE_PATH = "/lt-pos-table.txt";
     static final HashMap<String, String> POS_TABLE = loadUniversalPOSTable();
 
-    public POSTagger() {
+    public POSTaggerME() {
         super(loadDefaultModel());
     }
 
-    public POSTagger(POSModel model) {
+    public POSTaggerME(POSModel model) {
         super(model);
     }
 
@@ -35,7 +34,7 @@ public class POSTagger extends POSTaggerME {
 
     private static POSModel loadDefaultModel() {
         POSModel model = null;
-        try (InputStream modelIn = POSTagger.class.getResourceAsStream(DEFAULT_MODEL_PATH)) {
+        try (InputStream modelIn = POSTaggerME.class.getResourceAsStream(DEFAULT_MODEL_PATH)) {
             model = new POSModel(modelIn);
         } catch (NullPointerException | IOException e) {
             LOGGER.log(Level.SEVERE, "Failed to load default POS tagger model: " + DEFAULT_MODEL_PATH, e);
@@ -45,7 +44,7 @@ public class POSTagger extends POSTaggerME {
 
     private static HashMap<String, String> loadUniversalPOSTable() {
         HashMap<String, String> table = new HashMap<>();
-        try (InputStream is = POSTagger.class.getResourceAsStream(TABLE_PATH);
+        try (InputStream is = POSTaggerME.class.getResourceAsStream(TABLE_PATH);
              BufferedReader reader = new BufferedReader(new InputStreamReader(is))) {
             while (reader.ready()) {
                 String[] vals = reader.readLine().split("\t");
