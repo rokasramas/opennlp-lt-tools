@@ -47,24 +47,16 @@ train-ner-time:
 eval-ner-time:
 	opennlp TokenNameFinderEvaluator -model output/lt-ner-time.bin -data resources/lt-ner-time.eval -encoding UTF-8
 
-train-ner-product:
-	opennlp TokenNameFinderTrainer -model output/lt-ner-product.bin -lang lt -data resources/lt-ner-product.train -encoding UTF-8
-
-eval-ner-product:
-	opennlp TokenNameFinderEvaluator -model output/lt-ner-product.bin -data resources/lt-ner-product.eval -encoding UTF-8
-
 train-ner:
 	make train-ner-person
 	make train-ner-location
 	make train-ner-organization
 	make train-ner-time
-	make train-ner-product
 
 eval-ner:
 	make eval-ner-person
 	make eval-ner-location
 	make eval-ner-organization
 	make eval-ner-time
-	make eval-ner-product
 
 eval: eval-token eval-sent eval-pos eval-lemmatizer eval-ner
