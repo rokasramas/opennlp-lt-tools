@@ -27,25 +27,25 @@ train-ner-person:
 	opennlp TokenNameFinderTrainer -model output/lt-ner-person.bin -lang lt -data resources/lt-ner-person.train -encoding UTF-8
 
 eval-ner-person:
-	opennlp TokenNameFinderEvaluator -model output/lt-ner-person.bin -data resources/lt-ner-person.eval -encoding UTF-8
+	opennlp TokenNameFinderEvaluator -model src/main/resources/models/lt-ner-person.bin -data resources/lt-ner-person.eval -encoding UTF-8
 
 train-ner-location:
 	opennlp TokenNameFinderTrainer -model output/lt-ner-location.bin -lang lt -data resources/lt-ner-location.train -encoding UTF-8
 
 eval-ner-location:
-	opennlp TokenNameFinderEvaluator -model output/lt-ner-location.bin -data resources/lt-ner-location.eval -encoding UTF-8
+	opennlp TokenNameFinderEvaluator -model src/main/resources/models/lt-ner-location.bin -data resources/lt-ner-location.eval -encoding UTF-8
 
 train-ner-organization:
 	opennlp TokenNameFinderTrainer -model output/lt-ner-organization.bin -lang lt -data resources/lt-ner-organization.train -encoding UTF-8
 
 eval-ner-organization:
-	opennlp TokenNameFinderEvaluator -model output/lt-ner-organization.bin -data resources/lt-ner-organization.eval -encoding UTF-8
+	opennlp TokenNameFinderEvaluator -model src/main/resources/models/lt-ner-organization.bin -data resources/lt-ner-organization.eval -encoding UTF-8
 
 train-ner-time:
 	opennlp TokenNameFinderTrainer -model output/lt-ner-time.bin -lang lt -data resources/lt-ner-time.train -encoding UTF-8
 
 eval-ner-time:
-	opennlp TokenNameFinderEvaluator -model output/lt-ner-time.bin -data resources/lt-ner-time.eval -encoding UTF-8
+	opennlp TokenNameFinderEvaluator -model src/main/resources/models/lt-ner-time.bin -data resources/lt-ner-time.eval -encoding UTF-8
 
 train-ner:
 	make train-ner-person
